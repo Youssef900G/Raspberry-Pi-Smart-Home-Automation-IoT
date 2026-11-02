@@ -1,66 +1,114 @@
 # Smart Home Automation & IoT Monitoring System
 
-An integrated Smart Home automation ecosystem built around Raspberry Pi 4, combining four mechatronic subsystems with centralized communication, data storage, and real-time monitoring.
+An integrated Smart Home automation ecosystem developed using **Raspberry Pi 4**, combining four mechatronic subsystems with centralized communication, data acquisition, automation, time-series storage, and real-time monitoring.
+
+The project demonstrates the integration of embedded systems, sensors, actuators, communication protocols, and IoT data infrastructure into one unified automation ecosystem.
 
 ## Project Overview
 
-The system integrates four independent automation subsystems:
+The system consists of four independent but interconnected automation subsystems:
 
-### 1. Climate Control
+1. Climate Control
+2. Presence-Based Smart Lighting
+3. Automated Parking Barrier
+4. Automated Water Management
 
-* DHT11 temperature and humidity sensor.
-* GPIO-based sensor communication.
-* Automated cooling simulation based on temperature thresholds.
+All subsystems communicate through MQTT, while sensor data is stored in InfluxDB and visualized through a centralized Grafana dashboard.
 
-### 2. Smart Lighting
+## 1. Climate Control
 
-* HC-SR501 PIR motion sensor.
-* Automatic multi-LED lighting control.
-* MQTT-based event communication.
+* Integrated a DHT11 temperature and humidity sensor with Raspberry Pi GPIO.
+* Implemented live temperature and humidity monitoring.
+* Developed threshold-based automated cooling simulation.
 
-### 3. Automated Parking Barrier
+## 2. Presence-Based Smart Lighting
 
-* HC-SR04 ultrasonic distance sensor.
-* PWM-controlled micro-servo motor.
-* Voltage-level shifting for safe hardware interfacing.
+* Integrated an HC-SR501 PIR motion sensor.
+* Implemented motion-triggered multi-LED lighting control.
+* Used MQTT event messages for communication between components.
 
-### 4. Automated Water Management
+## 3. Automated Parking Barrier
 
-* Water-level sensor.
-* PCF8591 analog-to-digital converter over I²C.
-* Relay-based pump control.
+* Integrated an HC-SR04 ultrasonic distance sensor.
+* Implemented proximity-based vehicle detection.
+* Controlled a micro-servo motor using PWM.
+* Incorporated voltage-level shifting for safe interfacing with Raspberry Pi 3.3V logic.
 
-## Data Infrastructure
+## 4. Automated Water Management
 
-The system uses a centralized IoT monitoring pipeline:
+* Integrated a water-level sensor.
+* Used a PCF8591 analog-to-digital converter through I²C communication.
+* Implemented water-level measurement and monitoring.
+* Developed relay-based pump control.
 
-* **MQTT (Mosquitto):** Communication between subsystems.
-* **InfluxDB:** Time-series sensor data storage.
-* **Grafana:** Live monitoring and visualization dashboard.
+## System Architecture & Data Infrastructure
 
-## Technologies & Components
+A centralized IoT monitoring pipeline connects the different subsystems.
 
-* Raspberry Pi 4
-* Python
-* GPIO
-* I²C
-* PWM
-* MQTT / Mosquitto
-* InfluxDB
-* Grafana
-* DHT11, HC-SR501, HC-SR04
-* PCF8591 ADC
-* Servo motor, relay, LEDs and water-level sensor
+| Technology       | Purpose                                    |
+| ---------------- | ------------------------------------------ |
+| Raspberry Pi 4   | Main embedded computing platform           |
+| Python           | Hardware control and subsystem programming |
+| GPIO             | Sensor and actuator interfacing            |
+| I²C              | Communication with PCF8591 ADC             |
+| PWM              | Servo motor control                        |
+| MQTT (Mosquitto) | Inter-process and subsystem communication  |
+| InfluxDB         | Time-series sensor data storage            |
+| Grafana          | Real-time monitoring and visualization     |
 
-## System Monitoring
+## Project Gallery
 
-The Grafana dashboard provides live visualization of temperature, lighting status, parking barrier status, and water-level measurements.
+### 1. Hardware Implementation
+
+Physical Raspberry Pi setup with integrated sensors, actuators, and electronic components.
+
+![Hardware Setup](images/hardware_setup.jpg)
+
+### 2. Live Grafana Monitoring Dashboard
+
+Centralized dashboard displaying temperature measurements, lighting status, parking barrier status, and water-level readings.
+
+![Grafana Dashboard](images/grafana_dashboard.png)
+
+### 3. Running System – Raspberry Pi 4
+
+Multiple subsystem programs running simultaneously, processing sensor measurements and exchanging real-time data through MQTT.
+
+![Running System](images/running_system.png)
+
+## Key Engineering Concepts
+
+* Embedded Systems Development
+* Mechatronic System Integration
+* IoT Architecture
+* Sensor Data Acquisition
+* Actuator Control
+* Analog-to-Digital Conversion
+* GPIO and I²C Communication
+* PWM-Based Motor Control
+* MQTT Messaging
+* Time-Series Data Management
+* Real-Time Monitoring
+* Hardware-Software Integration
 
 ## Project Objectives
 
-* Integrate multiple mechatronic systems into one automation ecosystem.
-* Enable communication between distributed hardware subsystems.
-* Collect and store sensor data.
-* Provide centralized real-time monitoring.
-* Automate physical processes based on sensor readings.
+* Integrate multiple mechatronic subsystems into one automation ecosystem.
+* Enable communication between independent hardware components.
+* Acquire and process real-time sensor data.
+* Automate physical processes based on sensor measurements.
+* Store and visualize system telemetry through a centralized monitoring platform.
 
+## Technologies & Components
+
+**Platform:** Raspberry Pi 4
+
+**Programming:** Python
+
+**Communication:** MQTT, Mosquitto, I²C
+
+**Data Infrastructure:** InfluxDB, Grafana
+
+**Sensors:** DHT11, HC-SR501, HC-SR04, Water-Level Sensor
+
+**Other Components:** PCF8591 ADC, Servo Motor, Relay, LEDs, Cooling Simulation Components
