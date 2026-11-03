@@ -60,17 +60,16 @@ A centralized IoT monitoring pipeline connects the different subsystems.
 
 ### 1. Live Grafana Monitoring Dashboard
 
-Centralized dashboard displaying temperature measurements, lighting status, parking barrier status, and water-level readings.
-
+![Grafana Dashboard](images/grafana_dashboard.png.png)
 
 ### 2. Hardware Implementation
 
-Physical Raspberry Pi setup with integrated sensors, actuators, and electronic components.
+![Hardware Setup](images/hardware_setup.jpg.jpeg)
 
 
 ### 3. Running System – Raspberry Pi 4
 
-Multiple subsystem programs running simultaneously, processing sensor measurements and exchanging real-time data through MQTT.
+![Running System](images/running_system.png.png)
 
 
 ## Key Engineering Concepts
